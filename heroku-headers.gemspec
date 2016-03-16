@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["David Backeus"]
   spec.email         = ["duztdruid@gmail.com"]
 
-  spec.summary       = %q{Add heroku release info to your request headers.}
+  spec.summary       = %q{Add heroku release info to your response headers.}
   spec.homepage      = "https://github.com/dbackeus/heroku-headers"
   spec.license       = "MIT"
 
