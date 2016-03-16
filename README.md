@@ -1,28 +1,45 @@
-# Heroku::Headers
+# heroku-headers
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/heroku/headers`. To experiment with that code, run `bin/console` for an interactive prompt.
+A middleware which adds information from Heroku's lab project
+`runtime-dyno-metadata` to your response headers, for example:
 
-TODO: Delete this and the text above, and describe your gem
+```
+Heroku-Release-Version: v108
+Heroku-Slug-Commit: ff5b3eb5eba4306b4e8fbba7df95ef5f56d87491
+```
+
+Useful for keeping track of which version you're actually interacting
+with in your browser.
+
+## Prerequisites
+
+This middleware assumes that you have activated the `runtime-dyno-metadata`
+labs feature on Heroku which adds ENV variables containing Heroku
+release metadata. Enable it for your app using the Heroku CLI:
+
+```
+heroku labs:enable runtime-dyno-metadata -a <appname>
+```
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'heroku-headers'
+gem "heroku-headers"
 ```
 
 And then execute:
 
     $ bundle
 
-Or install it yourself as:
-
-    $ gem install heroku-headers
-
 ## Usage
 
-TODO: Write usage instructions here
+If you add the gem to a Rails app the middleware will be added automatically
+via a Railtie initializer.
+
+If you're not on rails you'll have to manually add the `HerokuHeaders::Middleware`
+class to your middleware chain.
 
 ## Development
 
@@ -32,10 +49,8 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/heroku-headers. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
-
+Bug reports and pull requests are welcome on GitHub at https://github.com/mynewsdesk/heroku-headers. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
