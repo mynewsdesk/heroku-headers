@@ -4,8 +4,7 @@ A middleware which adds information from Heroku's lab project
 `runtime-dyno-metadata` to your response headers, for example:
 
 ```
-Heroku-Release-Version: v108
-Heroku-Slug-Commit: ff5b3eb5eba4306b4e8fbba7df95ef5f56d87491
+Heroku-Release: v108, ff5b3eb5eba4306b4e8fbba7df95ef5f56d87491, 2016-03-14T15:53:23Z
 ```
 
 Useful for keeping track of which version you're actually interacting
